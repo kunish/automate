@@ -68,6 +68,7 @@
           - nodejs
           - yarnpkg
           - cron-apt
+          - avahi-daemon
         state: latest
 
     - name: install docker-py using pip
