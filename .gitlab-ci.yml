@@ -8,5 +8,5 @@ stages:
 lint:
   image: ansible/ansible
   stage: lint
-  scripts:
+  script:
     - ansible-lint
