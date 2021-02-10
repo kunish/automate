@@ -1,0 +1,33 @@
+- hosts:
+    - server
+    - pi
+
+  tasks:
+    - name: update using apt
+      become: yes
+      ansible.builtin.apt:
+        autoclean: yes
+        autoremove: yes
+        upgrade: "full"
+
+    - name: install packages
+      become: yes
+      ansible.builtin.package:
+        name:
+          - docker.io
+          - docker-compose
+          - vim
+          - neovim
+          - tmux
+          - zsh
+          - fish
+          - nodejs
+          - yarnpkg
+        state: latest
+
+    - name: start docker service
+      become: yes
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: yes
