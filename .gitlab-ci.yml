@@ -1,0 +1,12 @@
+default:
+  tags:
+    - docker1
+
+stages:
+  - lint
+
+lint:
+  image: ansible/ansible
+  stage: lint
+  scripts:
+    - ansible-lint
