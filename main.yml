@@ -39,6 +39,8 @@
           - tmux
           - zsh
           - fish
+          - python
+          - python3-pip
           - nodejs
           - yarnpkg
           # 可以通过 $hostname.local 访问本地设备
