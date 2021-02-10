@@ -1,0 +1,16 @@
+default:
+  tags:
+    - docker1
+
+stages:
+  - lint
+
+lint:
+  stage: lint
+  image: python
+  variables:
+    ANSIBLE_CONFIG: ./ansible.cfg
+  script:
+    - pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+    - pip3 install ansible ansible-lint
+    - ansible-lint
