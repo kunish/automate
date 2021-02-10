@@ -6,7 +6,8 @@ stages:
   - lint
 
 lint:
-  image: ansible/ansible
+  image: python
   stage: lint
   script:
+    - pip install ansible-lint
     - ansible-lint
