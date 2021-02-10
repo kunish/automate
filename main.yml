@@ -68,8 +68,6 @@
           - nodejs
           - yarnpkg
           - cron-apt
-          # 可以通过 $hostname.local 访问本地设备
-          - avahi-daemon
         state: latest
 
     - name: install docker-py using pip
