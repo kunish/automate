@@ -9,7 +9,7 @@ lint:
   image: python
   stage: lint
   script:
-    - pip3 install ansible-lint
+    - pip3 install ansible ansible-lint
     - ansible-lint
   variables:
     ANSIBLE_CONFIG: ./ansible.cfg
