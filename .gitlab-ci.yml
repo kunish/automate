@@ -6,7 +6,8 @@ stages:
   - lint
 
 lint:
-  image: quay.io/ansible/toolset
+  image: python
   stage: lint
   script:
+    - pip install ansible ansible-lint
     - ansible-lint
