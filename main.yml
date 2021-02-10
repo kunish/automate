@@ -51,3 +51,15 @@
         name: docker
         state: started
         enabled: yes
+
+    - name: copy service files
+      copy:
+        src: "{{ playbook_dir }}/stuff/services"
+        dest: "~"
+
+    - name: start netdata service with docker-compose
+      become: yes
+      community.docker.docker_compose:
+        project_src: "/home/{{ ansible_user }}/services/netdata"
+        state: present
+        pull: yes
