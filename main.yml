@@ -48,6 +48,12 @@
           - avahi-daemon
         state: latest
 
+    - name: install docker-py using pip
+      become: yes
+      pip:
+        name: docker
+        state: latest
+
     - name: start docker service
       become: yes
       ansible.builtin.service:
