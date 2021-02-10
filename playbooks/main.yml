@@ -23,6 +23,8 @@
           - fish
           - nodejs
           - yarnpkg
+          # 可以通过 $hostname.local 访问本地设备
+          - avahi-daemon
         state: latest
 
     - name: start docker service
