@@ -97,6 +97,13 @@
         state: present
         pull: yes
 
+    - name: start portainer service with docker-compose
+      become: yes
+      community.docker.docker_compose:
+        project_src: "/home/{{ ansible_user }}/services/portainer"
+        state: present
+        pull: yes
+
 - hosts:
     - ubuntu1.lan
 
