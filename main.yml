@@ -83,14 +83,27 @@
         state: started
         enabled: yes
 
-    - name: copy service files
-      copy:
+    - name: sync service files
+      ansible.posix.synchronize:
         src: "{{ playbook_dir }}/stuff/services"
         dest: "~"
+        delete: yes
+        recursive: yes
 
     - name: start netdata service with docker-compose
       become: yes
       community.docker.docker_compose:
         project_src: "/home/{{ ansible_user }}/services/netdata"
+        state: present
+        pull: yes
+
+- hosts:
+    - ubuntu1.lan
+
+  tasks:
+    - name: start gitlab-ce service with docker-compose
+      become: yes
+      community.docker.docker_compose:
+        project_src: "/home/{{ ansible_user }}/services/gitlab-ce"
         state: present
         pull: yes
