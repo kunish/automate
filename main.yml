@@ -85,7 +85,7 @@
 
     - name: sync service files
       ansible.posix.synchronize:
-        src: "{{ playbook_dir }}/stuff/services"
+        src: "stuff/services"
         dest: "~"
         delete: yes
         recursive: yes
