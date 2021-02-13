@@ -68,6 +68,8 @@
           - nodejs
           - yarnpkg
           - cron-apt
+          - build-essential
+          - golang
         state: latest
 
     - name: install docker-py using pip
@@ -84,11 +86,19 @@
         enabled: yes
 
     - name: sync service files
+      become: yes
       ansible.posix.synchronize:
         src: "stuff/services"
-        dest: "~"
+        dest: "/home/{{ ansible_user }}"
         delete: yes
         recursive: yes
+
+    - name: start gitlab-runner service with docker-compose
+      become: yes
+      community.docker.docker_compose:
+        project_src: "/home/{{ ansible_user }}/services/gitlab-runner"
+        state: present
+        pull: yes
 
     - name: start netdata service with docker-compose
       become: yes
