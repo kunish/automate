@@ -5,10 +5,14 @@ services:
     image: "gitlab/gitlab-ce"
     container_name: gitlab
     restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://ubuntu1.lan'
+        gitlab_rails['gitlab_shell_ssh_port'] = 222
     ports:
       - "80:80"
       - "443:443"
-      - "22:22"
+      - "222:22"
     volumes:
       - "/srv/gitlab/config:/etc/gitlab"
       - "/srv/gitlab/logs:/var/log/gitlab"

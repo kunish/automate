@@ -1,13 +1,8 @@
 server:
   hosts:
     ubuntu1.lan:
-      ansible_port: 222
     ubuntu[2:4].lan:
-  vars:
-    ansible_user: shikun
 
 pi:
   hosts:
     pi[1:4].lan:
-  vars:
-    ansible_user: ubuntu
