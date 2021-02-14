@@ -71,6 +71,7 @@
           - cron-apt
           - build-essential
           - golang
+          - ntpdate
         state: latest
 
     - name: install docker-py using pip
