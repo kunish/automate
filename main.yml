@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: common plays
+  hosts:
     - server
     - pi
 
@@ -114,7 +115,8 @@
         state: present
         pull: yes
 
-- hosts:
+- name: main server
+  hosts:
     - ubuntu1.lan
 
   tasks:
@@ -122,5 +124,12 @@
       become: yes
       community.docker.docker_compose:
         project_src: "/home/{{ ansible_user }}/services/gitlab-ce"
+        state: present
+        pull: yes
+
+    - name: start docker-registry service with docker-compose
+      become: yes
+      community.docker.docker_compose:
+        project_src: "/home/{{ ansible_user }}/services/docker-registry"
         state: present
         pull: yes
