@@ -1,0 +1,17 @@
+- name: make sure ntp is installed
+  become: yes
+  ansible.builtin.apt:
+    name: ntp
+    state: latest
+
+- name: make sure ntp service is started
+  become: yes
+  ansible.builtin.service:
+    name: ntp
+    state: started
+    enabled: yes
+
+- name: set timezone
+  become: yes
+  community.general.timezone:
+    name: Asia/Shanghai

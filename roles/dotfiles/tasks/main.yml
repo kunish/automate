@@ -1,0 +1,26 @@
+- name: sync dotfiles
+  become: yes
+  ansible.posix.synchronize:
+    src: "stuff/dotfiles"
+    dest: "/home/{{ ansible_user }}"
+    delete: yes
+    recursive: yes
+
+- name: link vim .vimrc
+  ansible.builtin.file:
+    src: "~/dotfiles/.vimrc"
+    dest: "~/.vimrc"
+    state: link
+    force: yes
+
+- name: make sure .config/nvim folder is there
+  ansible.builtin.file:
+    path: "~/.config/nvim"
+    state: directory
+
+- name: link neovim init.vim
+  ansible.builtin.file:
+    src: "~/dotfiles/init.vim"
+    dest: "~/.config/nvim/init.vim"
+    state: link
+    force: yes

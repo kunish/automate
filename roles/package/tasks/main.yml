@@ -1,0 +1,28 @@
+- name: update using apt
+  become: yes
+  ansible.builtin.apt:
+    autoclean: yes
+    autoremove: yes
+    upgrade: "full"
+
+- name: install packages
+  become: yes
+  ansible.builtin.package:
+    name:
+      - docker.io
+      - docker-compose
+      - vim
+      - neovim
+      - tmux
+      - zsh
+      - fish
+      - python
+      - python3-pip
+      - nodejs
+      - yarnpkg
+      - cron-apt
+      - build-essential
+      - golang
+      - ntpdate
+      - git
+    state: latest

@@ -1,0 +1,41 @@
+- name: install docker-py using pip
+  become: yes
+  pip:
+    name: docker
+    state: latest
+
+- name: start docker service
+  become: yes
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: sync service files
+  become: yes
+  ansible.posix.synchronize:
+    src: "stuff/services"
+    dest: "/home/{{ ansible_user }}"
+    delete: yes
+    recursive: yes
+
+- name: start gitlab-runner service with docker-compose
+  become: yes
+  community.docker.docker_compose:
+    project_src: "/home/{{ ansible_user }}/services/gitlab-runner"
+    state: present
+    pull: yes
+
+- name: start netdata service with docker-compose
+  become: yes
+  community.docker.docker_compose:
+    project_src: "/home/{{ ansible_user }}/services/netdata"
+    state: present
+    pull: yes
+
+- name: start portainer service with docker-compose
+  become: yes
+  community.docker.docker_compose:
+    project_src: "/home/{{ ansible_user }}/services/portainer"
+    state: present
+    pull: yes
