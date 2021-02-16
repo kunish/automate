@@ -1,7 +1,7 @@
 server:
   hosts:
-    ubuntu1.lan:
-    ubuntu[2:4].lan:
+    pve01-ubuntu[1:4].lan:
+    pve02-ubuntu[1:4].lan:
 
 pi:
   hosts:

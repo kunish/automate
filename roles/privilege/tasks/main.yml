@@ -1,3 +1,10 @@
+- name: set authorized key taken from file
+  become: yes
+  ansible.posix.authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
 - name: make sure wheel group is present
   become: yes
   group:

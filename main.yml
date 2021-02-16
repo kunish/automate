@@ -5,14 +5,14 @@
     - pi
   roles:
     - privilege
-    - ntp
+    - timesync
     - package
     - dotfiles
     - docker
 
 - name: main server
   hosts:
-    - ubuntu1.lan
+    - pve02-ubuntu1.lan
 
   tasks:
     - name: start gitlab-ce service with docker-compose
