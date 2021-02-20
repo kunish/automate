@@ -1,8 +1,12 @@
 server:
   hosts:
-    pve01-ubuntu[1:4].lan:
-    pve02-ubuntu[1:4].lan:
+    us[1:5]:
+      ansible_user: ubuntu
+    us6:
+      ansible_user: shikun
+      ansible_ssh_port: 222
 
 pi:
   hosts:
-    pi[1:4].lan:
+    pi[1:3].lan:
+      ansible_user: ubuntu

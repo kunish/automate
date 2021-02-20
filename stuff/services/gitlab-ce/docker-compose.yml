@@ -7,13 +7,15 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://ubuntu1.lan'
-        gitlab_rails['gitlab_shell_ssh_port'] = 222
+        external_url "https://gitlab.shikun.icu"
+        nginx["ssl_certificate"] = "/etc/gitlab/ssl/gitlab.shikun.icu.crt"
+        nginx["ssl_certificate_key"] = "/etc/gitlab/ssl/gitlab.shikun.icu.key"
     ports:
       - "80:80"
       - "443:443"
-      - "222:22"
+      - "22:22"
     volumes:
       - "/srv/gitlab/config:/etc/gitlab"
+      - "/srv/gitlab/ssl:/etc/gitlab/ssl"
       - "/srv/gitlab/logs:/var/log/gitlab"
       - "/srv/gitlab/data:/var/opt/gitlab"
