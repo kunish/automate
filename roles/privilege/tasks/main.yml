@@ -3,7 +3,7 @@
   ansible.posix.authorized_key:
     user: "{{ ansible_user }}"
     state: present
-    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', '~/.ssh/home_id_rsa.pub') }}"
 
 - name: make sure wheel group is present
   become: yes
