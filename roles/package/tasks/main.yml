@@ -15,7 +15,6 @@
       - neovim
       - tmux
       - zsh
-      - fish
       - python
       - python3-pip
       - nodejs
@@ -23,6 +22,5 @@
       - cron-apt
       - build-essential
       - golang
-      - ntpdate
       - git
     state: latest

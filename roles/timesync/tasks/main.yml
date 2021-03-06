@@ -3,12 +3,6 @@
   community.general.timezone:
     name: Asia/Shanghai
 
-- name: make systemd-timesyncd is installed
-  become: yes
-  ansible.builtin.apt:
-    name: systemd-timesyncd
-    state: latest
-
 - name: sync timesyncd.conf file
   become: yes
   ansible.builtin.synchronize:

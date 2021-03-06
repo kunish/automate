@@ -1,8 +1,6 @@
 ---
 - name: oh-my-zsh
-  hosts:
-    - server
-    - pi
+  hosts: all
   roles:
     - role: gantsign.oh-my-zsh
       users:
@@ -10,52 +8,13 @@
           oh_my_zsh:
             plugins:
               - git
+              - z
 
 - name: common plays
-  hosts:
-    - server
-    - pi
+  hosts: all
   roles:
     - privilege
     - timesync
     - package
     - dotfiles
     - docker
-
-- name: main server
-  hosts:
-    - us6
-  tasks:
-    - name: sync gitlab-ce service files
-      ansible.posix.synchronize:
-        src: "stuff/services/gitlab-ce"
-        dest: "/home/{{ ansible_user }}/services"
-        delete: yes
-        recursive: yes
-
-    - name: make sure /srv/gitlab folder is there
-      ansible.builtin.file:
-        path: "/srv/gitlab/ssl"
-        state: directory
-
-    - name: sync certs
-      become: yes
-      ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
-      loop:
-        - {
-            src: "~/.acme.sh/gitlab.shikun.icu/gitlab.shikun.icu.crt",
-            dest: "/srv/gitlab/ssl/gitlab.shikun.icu.crt",
-          }
-        - {
-            src: "~/.acme.sh/gitlab.shikun.icu/gitlab.shikun.icu.key",
-            dest: "/srv/gitlab/ssl/gitlab.shikun.icu.key",
-          }
-
-    - name: start gitlab-ce service with docker-compose
-      become: yes
-      community.docker.docker_compose:
-        project_src: "/home/{{ ansible_user }}/services/gitlab-ce"
-        state: present
-        pull: yes
