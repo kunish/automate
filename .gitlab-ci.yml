@@ -1,4 +1,4 @@
-image: ansible-lint
+image: cytopia/ansible-lint
 
 test:
   script:
