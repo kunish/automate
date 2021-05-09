@@ -1,0 +1,8 @@
+image: ansible-lint
+
+test:
+  script:
+    - ansible-lint
+  only:
+    - master
+    - develop
