@@ -1,4 +1,4 @@
-image: cytopia/ansible-lint
+image: quay.io/ansible/toolset
 
 test:
   script:
