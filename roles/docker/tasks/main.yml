@@ -1,10 +1,4 @@
-- name: install docker-py using pip
-  become: yes
-  pip:
-    name: docker
-    state: latest
-
-- name: start docker service
+- name: start and enable docker service
   become: yes
   ansible.builtin.service:
     name: docker

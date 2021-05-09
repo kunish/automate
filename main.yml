@@ -7,14 +7,24 @@
         - username: "{{ ansible_user }}"
           oh_my_zsh:
             plugins:
+              - fzf
               - git
               - z
 
 - name: common plays
   hosts: all
   roles:
-    - privilege
     - timesync
     - package
     - dotfiles
     - docker
+
+  tasks:
+    - name: check if reboot is required
+      become: yes
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_file
+
+    - reboot:
+      when: reboot_file.stat.exists

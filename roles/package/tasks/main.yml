@@ -1,26 +1,48 @@
+- name: replace apt/sources.list for amd64
+  become: yes
+  ansible.posix.synchronize:
+    src: "stuff/config-file/apt-sources-focal.list"
+    dest: "/etc/apt/sources.list"
+  when:
+    - ansible_facts['distribution'] == 'Ubuntu'
+    - ansible_facts['distribution_release'] == 'focal'
+    - ansible_facts['architecture'] == 'x86_64'
+
+- name: replace apt/sources.list for arm64
+  become: yes
+  ansible.posix.synchronize:
+    src: "stuff/config-file/apt-sources-port-groovy.list"
+    dest: "/etc/apt/sources.list"
+  when:
+    - ansible_facts['distribution'] == 'Ubuntu'
+    - ansible_facts['distribution_release'] == 'groovy'
+    - ansible_facts['architecture'] == 'aarch64'
+
 - name: update using apt
   become: yes
   ansible.builtin.apt:
     autoclean: yes
     autoremove: yes
+    update_cache: yes
     upgrade: "full"
 
 - name: install packages
   become: yes
   ansible.builtin.package:
     name:
-      - docker.io
+      - build-essential
       - docker-compose
-      - vim
+      - docker.io
+      - git
+      - golang
       - neovim
-      - tmux
-      - zsh
+      - nodejs
+      - npm
       - python
       - python3-pip
-      - nodejs
+      - tmux
+      - vim
       - yarnpkg
-      - cron-apt
-      - build-essential
-      - golang
-      - git
+      - zsh
+      - fzf
     state: latest

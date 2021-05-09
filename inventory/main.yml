@@ -1,7 +1,17 @@
 pi:
   hosts:
-    10.10.10.111:
-    10.10.10.112:
-    10.10.10.113:
+    pi[1:4]:
   vars:
     ansible_user: ubuntu
+    ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+
+server:
+  hosts:
+    10.10.11.56:
+    10.10.11.57:
+    10.10.11.58:
+    10.10.11.59:
+    10.10.11.60:
+  vars:
+    ansible_user: shikun
+    ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
