@@ -2,7 +2,7 @@ image: cytopia/ansible-lint
 
 test:
   script:
-    - ansible-lint
+    - ansible-lint .
   only:
     - master
     - develop
