@@ -7,6 +7,7 @@
     - ansible_facts['distribution'] == 'Ubuntu'
     - ansible_facts['distribution_release'] == 'focal'
     - ansible_facts['architecture'] == 'x86_64'
+    - is_remote is not defined
 
 - name: replace apt/sources.list for arm64
   become: yes
@@ -17,6 +18,7 @@
     - ansible_facts['distribution'] == 'Ubuntu'
     - ansible_facts['distribution_release'] == 'groovy'
     - ansible_facts['architecture'] == 'aarch64'
+    - is_remote is not defined
 
 - name: update using apt
   become: yes

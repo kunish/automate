@@ -1,24 +1,28 @@
 pi:
   hosts:
     pi[1:4]:
-  vars:
-    ansible_user: ubuntu
-    ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+      ansible_user: ubuntu
 
-server:
+remote:
   hosts:
-    10.10.0.9:
-    10.10.0.13:
-      ansible_port: 222
-    10.10.0.14:
-      ansible_port: 222
-    10.10.11.56:
-    10.10.11.57:
-    10.10.11.58:
-    10.10.11.59:
-    10.10.11.60:
+    aws:
+      ansible_user: ubuntu
+    linode:
+      ansible_user: shikun
+    oracle:
+      ansible_user: ubuntu
+  vars:
+    is_remote: yes
+
+home:
+  hosts:
+    10.10.11.[56:60]:
     10.10.11.67:
     10.10.11.68:
+    gitlab:
+    nginx:
+    npm:
+    workstation:
   vars:
     ansible_user: shikun
     ansible_ssh_private_key_file: ~/.ssh/home_id_rsa

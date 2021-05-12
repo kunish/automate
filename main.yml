@@ -14,9 +14,9 @@
 - name: common plays
   hosts: all
   roles:
-    - timesync
-    - package
     - dotfiles
+    - package
+    - timesync
     - docker
 
   tasks:
