@@ -33,6 +33,7 @@
       - build-essential
       - docker-compose
       - docker.io
+      - fzf
       - git
       - golang
       - neovim
@@ -43,6 +44,4 @@
       - tmux
       - vim
       - yarnpkg
-      - zsh
-      - fzf
     state: latest

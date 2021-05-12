@@ -27,4 +27,5 @@
       register: reboot_file
 
     - reboot:
+      become: yes
       when: reboot_file.stat.exists
