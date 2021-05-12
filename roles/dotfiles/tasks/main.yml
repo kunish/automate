@@ -1,3 +1,8 @@
+- name: disable login banner
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user }}/.hushlogin"
+    state: file
+
 - name: sync dotfiles
   become: yes
   ansible.posix.synchronize:
