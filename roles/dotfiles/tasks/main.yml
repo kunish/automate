@@ -1,6 +1,6 @@
 - name: disable login banner
   ansible.builtin.file:
-    path: "/home/{{ ansible_user }}/.hushlogin"
+    path: "~/.hushlogin"
     state: file
 
 - name: sync dotfiles
@@ -16,6 +16,7 @@
     src: "~/dotfiles/.vimrc"
     dest: "~/.vimrc"
     state: link
+    follow: no
     force: yes
 
 - name: make sure .config/nvim folder is there
@@ -28,4 +29,5 @@
     src: "~/dotfiles/init.vim"
     dest: "~/.config/nvim/init.vim"
     state: link
+    follow: no
     force: yes
