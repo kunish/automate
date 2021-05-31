@@ -1,30 +1,24 @@
-pi:
-  hosts:
-    pi[1:4]:
-      ansible_user: ubuntu
-
 remote:
   hosts:
     aws:
       ansible_user: ubuntu
+    aws1:
+      ansible_user: ubuntu
     linode:
       ansible_user: shikun
     oracle:
+      ansible_user: ubuntu
+    oracle1:
       ansible_user: ubuntu
   vars:
     is_remote: yes
 
 home:
   hosts:
-    10.10.11.[56:60]:
-    10.10.11.67:
-    10.10.11.68:
     gitlab:
     nginx:
     npm:
     nuc:
-      ansible_user: root
-    pve:
       ansible_user: root
     workstation:
   vars:

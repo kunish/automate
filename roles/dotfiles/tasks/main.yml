@@ -1,7 +1,7 @@
 - name: disable login banner
   ansible.builtin.file:
     path: "~/.hushlogin"
-    state: file
+    state: touch
 
 - name: sync dotfiles
   become: yes
