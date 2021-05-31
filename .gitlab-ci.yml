@@ -4,5 +4,4 @@ test:
   script:
     - ansible-lint .
   only:
-    - master
-    - develop
+    - main
