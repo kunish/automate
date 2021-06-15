@@ -16,7 +16,9 @@ remote:
 home:
   hosts:
     gitlab:
+      ansible_port: 222
     nginx:
+      ansible_port: 222
     npm:
     nuc:
       ansible_user: root
