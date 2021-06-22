@@ -15,6 +15,7 @@ remote:
 
 home:
   hosts:
+    runner:
     gitlab:
       ansible_port: 222
     nginx:
