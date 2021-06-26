@@ -8,6 +8,7 @@
   ansible.builtin.synchronize:
     src: "stuff/config-file/timesyncd.conf"
     dest: /etc/systemd/timesyncd.conf
+  when: is_remote is not defined
 
 - name: make sure systemd-timesyncd service is restarted
   become: yes
@@ -15,3 +16,4 @@
     name: systemd-timesyncd
     state: restarted
     enabled: yes
+  when: is_remote is not defined

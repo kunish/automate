@@ -10,11 +10,17 @@ remote:
       ansible_user: ubuntu
     oracle1:
       ansible_user: ubuntu
+    gcp:
+      ansible_user: shikun
   vars:
     is_remote: yes
 
 home:
   hosts:
+    node[1:4]:
+    pi[1:4]:
+      ansible_user: ubuntu
+    nextcloud:
     runner:
     gitlab:
       ansible_port: 222

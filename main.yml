@@ -26,6 +26,7 @@
         path: /var/run/reboot-required
       register: reboot_file
 
-    - reboot:
+    - name: reboot if required
+      reboot:
       become: yes
       when: reboot_file.stat.exists
