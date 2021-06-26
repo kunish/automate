@@ -10,6 +10,27 @@
               - fzf
               - git
               - z
+  tasks:
+    - name: set LANG
+      ansible.builtin.lineinfile:
+        path: "~/.zshrc"
+        regexp: "^export LANG=.*"
+        line: "export LANG=en_US.UTF-8"
+        state: present
+
+    - name: set LC_ALL
+      ansible.builtin.lineinfile:
+        path: "~/.zshrc"
+        regexp: "^export LC_ALL=.*"
+        line: "export LC_ALL=en_US.UTF-8"
+        state: present
+
+    - name: touch z plugin jump list file
+      ansible.builtin.file:
+        path: "~/.z"
+        state: touch
+        access_time: preserve
+        modification_time: preserve
 
 - name: common plays
   hosts: all

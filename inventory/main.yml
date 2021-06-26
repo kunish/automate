@@ -29,6 +29,8 @@ home:
     npm:
     nuc:
       ansible_user: root
+    pve:
+      ansible_user: root
     workstation:
   vars:
     ansible_user: shikun

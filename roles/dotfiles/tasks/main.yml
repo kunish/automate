@@ -2,6 +2,8 @@
   ansible.builtin.file:
     path: "~/.hushlogin"
     state: touch
+    access_time: preserve
+    modification_time: preserve
 
 - name: sync dotfiles
   become: yes
