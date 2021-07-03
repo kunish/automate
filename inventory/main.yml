@@ -17,21 +17,15 @@ remote:
 
 home:
   hosts:
-    node[1:4]:
     pi[1:4]:
       ansible_user: ubuntu
-    nextcloud:
-    runner:
-    gitlab:
+    workstation:
+      ansible_user: shikun
       ansible_port: 222
     nginx:
+      ansible_user: shikun
       ansible_port: 222
-    npm:
     nuc:
       ansible_user: root
-    pve:
-      ansible_user: root
-    workstation:
   vars:
-    ansible_user: shikun
     ansible_ssh_private_key_file: ~/.ssh/home_id_rsa

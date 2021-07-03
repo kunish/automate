@@ -32,6 +32,9 @@
   become: yes
   ansible.builtin.package:
     name:
+      - net-tools
+      - dnsutils
+      - neofetch
       - docker-compose
       - docker.io
       - fzf
