@@ -1,26 +1,4 @@
-- name: replace apt/sources.list for amd64
-  become: yes
-  ansible.posix.synchronize:
-    src: "stuff/config-file/apt-sources-focal.list"
-    dest: "/etc/apt/sources.list"
-  when:
-    - ansible_facts['distribution'] == 'Ubuntu'
-    - ansible_facts['distribution_release'] == 'focal'
-    - ansible_facts['architecture'] == 'x86_64'
-    - is_remote is not defined
-
-- name: replace apt/sources.list for arm64
-  become: yes
-  ansible.posix.synchronize:
-    src: "stuff/config-file/apt-sources-port-groovy.list"
-    dest: "/etc/apt/sources.list"
-  when:
-    - ansible_facts['distribution'] == 'Ubuntu'
-    - ansible_facts['distribution_release'] == 'groovy'
-    - ansible_facts['architecture'] == 'aarch64'
-    - is_remote is not defined
-
-- name: update using apt
+- name: full update using apt
   become: yes
   ansible.builtin.apt:
     autoclean: yes
@@ -32,13 +10,14 @@
   become: yes
   ansible.builtin.package:
     name:
-      - net-tools
       - dnsutils
-      - neofetch
+      - traceroute
+      - net-tools
       - docker-compose
       - docker.io
       - fzf
       - git
+      - neofetch
       - neovim
       - tmux
       - vim

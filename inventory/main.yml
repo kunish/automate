@@ -1,31 +1,21 @@
 remote:
   hosts:
-    aws:
-      ansible_user: ubuntu
-    aws1:
-      ansible_user: ubuntu
-    linode:
-      ansible_user: shikun
     oracle:
       ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/oracle.key
     oracle1:
       ansible_user: ubuntu
-    gcp:
-      ansible_user: shikun
-  vars:
-    is_remote: yes
-
+      ansible_ssh_private_key_file: ~/.ssh/oracle1.key
 home:
   hosts:
     pi[1:4]:
       ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    gateway:
+      ansible_user: ubuntu
+      ansible_port: 222
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
     workstation:
       ansible_user: shikun
       ansible_port: 222
-    nginx:
-      ansible_user: shikun
-      ansible_port: 222
-    nuc:
-      ansible_user: root
-  vars:
-    ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
