@@ -5,20 +5,3 @@
     autoremove: yes
     update_cache: yes
     upgrade: "full"
-
-- name: install packages
-  become: yes
-  ansible.builtin.package:
-    name:
-      - dnsutils
-      - traceroute
-      - net-tools
-      - docker-compose
-      - docker.io
-      - fzf
-      - git
-      - neofetch
-      - neovim
-      - tmux
-      - vim
-    state: latest
