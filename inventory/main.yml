@@ -1,0 +1,50 @@
+remote:
+  hosts:
+    oracle:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/oracle.key
+    oracle1:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/oracle1.key
+
+pi:
+  hosts:
+    10.10.0.[3:5]:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+
+home:
+  hosts:
+    jarvy-workstation:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/jarvy_id_rsa
+    workstation:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    speedtest:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    clash:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    v2ray:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+
+cluster_proxy:
+  hosts:
+    10.10.0.30:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+
+cluster_controlplane:
+  hosts:
+    10.10.0.[31:33]:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+
+cluster_worker:
+  hosts:
+    10.10.0.[41:45]:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa

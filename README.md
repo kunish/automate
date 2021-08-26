@@ -2,13 +2,7 @@
 
 ## How to use
 
-### Write a inventory file or copy the inventory/example.yml and make it your own
-
-```bash
-cp inventory/example.yml inventory/main.yml
-```
-
-or
+### Write a inventory file
 
 ```bash
 cat > inventory/main.yml << EOF
