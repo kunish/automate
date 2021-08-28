@@ -11,7 +11,7 @@ remote:
 
 pi:
   hosts:
-    10.10.0.[3:5]:
+    10.10.0.[3:6]:
       ansible_user: ubuntu
       ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
 
