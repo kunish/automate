@@ -2,3 +2,16 @@
   become: yes
   community.general.timezone:
     name: Asia/Shanghai
+
+- name: set timesync server
+  become: yes
+  ansible.posix.synchronize:
+    src: "stuff/timesyncd.conf"
+    dest: "/etc/systemd/timesyncd.conf"
+
+- name: restart timesyncd service
+  become: yes
+  ansible.builtin.service:
+    name: systemd-timesyncd
+    state: restarted
+
