@@ -18,3 +18,11 @@
       reboot:
       become: yes
       when: reboot_file.stat.exists
+
+- name: cluster
+  hosts: cluster
+  tasks:
+    - name: install nfs-common
+      ansible.builtin.package:
+        name: nfs-common
+        state: latest
