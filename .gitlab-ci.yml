@@ -2,6 +2,7 @@ image: quay.io/ansible/toolset
 
 test:
   script:
-    - ansible-lint -c .ansible-lint .
+    - chmod 600 .ansible-lint
+    - ansible-lint .
   only:
     - main
