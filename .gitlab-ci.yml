@@ -2,6 +2,6 @@ image: quay.io/ansible/toolset
 
 test:
   script:
-    - ansible-lint .
+    - ansible-lint -c .ansible-lint .
   only:
     - main
