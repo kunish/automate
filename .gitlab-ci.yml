@@ -2,7 +2,7 @@ image: quay.io/ansible/toolset
 
 test:
   script:
-    - chmod 600 .ansible-lint
+    - chmod 600 ansble.cfg
     - ansible-lint .
   only:
     - main
