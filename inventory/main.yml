@@ -8,6 +8,10 @@ remote:
       ansible_host: oracle1.vps.shikun.icu
       ansible_user: ubuntu
       ansible_ssh_private_key_file: ~/.ssh/oracle1.key
+    aws:
+      ansible_host: aws.vps.shikun.icu
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/aws.pem
 
 pi:
   hosts:
@@ -17,16 +21,8 @@ pi:
 
 home:
   hosts:
-    workstation:
-      ansible_host: 10.10.0.14
-      ansible_user: shikun
-      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
-    jarvy-workstation:
-      ansible_host: 10.10.0.20
-      ansible_user: ubuntu
-      ansible_ssh_private_key_file: ~/.ssh/jarvy_id_rsa
-    speedtest:
-      ansible_host: 10.10.0.16
+    gitlab-runner:
+      ansible_host: 10.10.10.4
       ansible_user: shikun
       ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
 
@@ -40,5 +36,8 @@ cluster:
       ansible_user: shikun
       ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
     10.10.0.[41:45]:
+      ansible_user: shikun
+      ansible_ssh_private_key_file: ~/.ssh/home_id_rsa
+    10.10.0.[50:53]:
       ansible_user: shikun
       ansible_ssh_private_key_file: ~/.ssh/home_id_rsa

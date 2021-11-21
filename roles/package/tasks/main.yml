@@ -5,3 +5,11 @@
     autoremove: yes
     update_cache: yes
     upgrade: "full"
+
+- name: install packages
+  become: yes
+  ansible.builtin.package:
+    name:
+      - docker.io
+      - docker-compose
+    state: latest

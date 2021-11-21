@@ -8,10 +8,11 @@
   ansible.posix.synchronize:
     src: "stuff/timesyncd.conf"
     dest: "/etc/systemd/timesyncd.conf"
+  register: sync_timesyncd
 
 - name: restart timesyncd service
   become: yes
   ansible.builtin.service:
     name: systemd-timesyncd
     state: restarted
-
+  when: sync_timesyncd.changed
