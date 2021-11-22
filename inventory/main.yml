@@ -8,10 +8,6 @@ remote:
       ansible_host: oracle1.vps.shikun.icu
       ansible_user: ubuntu
       ansible_ssh_private_key_file: ~/.ssh/oracle1.key
-    aws:
-      ansible_host: aws.vps.shikun.icu
-      ansible_user: ubuntu
-      ansible_ssh_private_key_file: ~/.ssh/aws.pem
 
 pi:
   hosts:
