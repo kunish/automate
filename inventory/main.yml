@@ -3,11 +3,11 @@ remote:
     oracle:
       ansible_host: oracle.vps.shikun.icu
       ansible_user: ubuntu
-      ansible_ssh_private_key_file: ~/.ssh/oracle.key
+      ansible_ssh_private_key_file: ~/.ssh/oracle-ubuntu.priv
     oracle1:
       ansible_host: oracle1.vps.shikun.icu
       ansible_user: ubuntu
-      ansible_ssh_private_key_file: ~/.ssh/oracle1.key
+      ansible_ssh_private_key_file: ~/.ssh/oracle-ubuntu.priv
 
 pi:
   hosts:
