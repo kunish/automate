@@ -1,7 +1,6 @@
 - name: common plays
   hosts: all
   roles:
-    - dotfiles
     - package
     - timesync
     - docker
