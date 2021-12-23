@@ -21,6 +21,7 @@
   hosts: cluster
   tasks:
     - name: install nfs-common
+      become: yes
       ansible.builtin.package:
         name: nfs-common
         state: latest
