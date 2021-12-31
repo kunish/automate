@@ -1,0 +1,11 @@
+- name: install fish shell
+  become: yes
+  ansible.builtin.package:
+    name: fish
+    state: latest
+
+- name: setup user
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/fish
