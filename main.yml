@@ -1,10 +1,8 @@
 - name: common plays
   hosts: all
   roles:
-    - dotfiles
     - package
     - timesync
-    - docker
 
   tasks:
     - name: check if reboot is required
